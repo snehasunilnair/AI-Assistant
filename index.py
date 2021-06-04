@@ -5,6 +5,9 @@ engine =pyttsx3.init()
 #import speech recognition to take commands from user
 import speech_recognition as sr
 
+#import wikipedia
+import wikipedia
+
 #import date-time library
 import datetime
 
@@ -77,7 +80,16 @@ if __name__  in "__main__":
         print("Query : ",query)
         if "time" in query:
             time()
+
         elif "date" in query:
             date()
+
+        elif "wikipedia" in query:
+            speak("Searching...")
+            query= query.replace("wikipedia","")
+            result = wikipedia.summary(query,sentences = 2)
+            speak(result)
+
         elif "offline" in query or "thank you" in query or "exit" in query:
             quit()
+    
