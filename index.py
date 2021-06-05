@@ -8,8 +8,11 @@ import speech_recognition as sr
 #import wikipedia
 import wikipedia
 
-#send mail
+#to send mail
 import smtplib
+
+#for chrome 
+import webbrowser as wb
 
 #import date-time library
 import datetime
@@ -101,13 +104,19 @@ if __name__  in "__main__":
             result = wikipedia.summary(query,sentences = 2)
             speak(result)
 
-        elif "send email" in query or "send mail" in query or "send a mail" or "send an email":
+        elif "search in chrome" in query or "chrome search" in query or "google" in query:
+            speak("What should i search?")
+            chrome_path = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s"
+            search = takeCommand().lower()
+            wb.get(chrome_path).open_new_tab(search+ ".com")
+
+        elif "send email" in query or "send mail" in query or "send a mail" in query or "send an email" in query:
             try:
                 speak("What do you want me to convey?")
                 content = takeCommand()
                 to = "xyz@gmail.com"                             #the user's mail id you want to send  (used a dummy here)
 
-                #the next few lines are to send your message to the above user
+                #the commented lines below are to send your message to the above user
                 #sendmail(to,content)
                 #speak("The mail was sent successfully")
 
