@@ -8,6 +8,9 @@ import speech_recognition as sr
 #import wikipedia
 import wikipedia
 
+#send mail
+import smtplib
+
 #import date-time library
 import datetime
 
@@ -72,6 +75,14 @@ def takeCommand():
         return"None"
     return query
 
+def sendmail(to, content):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login("abc@gmail.com","yourpassword")   #here give your mail id and password
+    server.sendmail("abc@gmail.com",to, content)   #your mail id  (this is a dummy value)
+    server.close()
+
 #main function
 if __name__  in "__main__":
     greet()
@@ -89,6 +100,22 @@ if __name__  in "__main__":
             query= query.replace("wikipedia","")
             result = wikipedia.summary(query,sentences = 2)
             speak(result)
+
+        elif "send email" in query or "send mail" in query or "send a mail" or "send an email":
+            try:
+                speak("What do you want me to convey?")
+                content = takeCommand()
+                to = "xyz@gmail.com"                             #the user's mail id you want to send  (used a dummy here)
+
+                #the next few lines are to send your message to the above user
+                #sendmail(to,content)
+                #speak("The mail was sent successfully")
+
+                #for now ,we are just speaking the content
+                speak(content)
+            except Exception as e:
+                speak(e)
+                speak("Unable to send the message")
 
         elif "offline" in query or "thank you" in query or "exit" in query:
             quit()
