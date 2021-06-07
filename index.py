@@ -14,6 +14,9 @@ import smtplib
 #for chrome 
 import webbrowser as wb
 
+#system functions
+import os
+
 #import date-time library
 import datetime
 
@@ -125,6 +128,15 @@ if __name__  in "__main__":
             except Exception as e:
                 speak(e)
                 speak("Unable to send the message")
+        
+        elif "logout" in query:
+            os.system("shutdown - l")
+        
+        elif "shutdown" in query:
+            os.system("shutdown /s /t 1")
+        
+        elif "restart" in query:
+            os.system("shutdown /r /t 1")
 
         elif "offline" in query or "thank you" in query or "exit" in query:
             quit()
