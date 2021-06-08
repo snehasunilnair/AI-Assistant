@@ -20,6 +20,9 @@ import os
 #import date-time library
 import datetime
 
+#battery and cpu updates
+import psutil
+
 #Set the voice type,speed and volume
 voices= engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
@@ -89,6 +92,15 @@ def sendmail(to, content):
     server.sendmail("abc@gmail.com",to, content)   #your mail id  (this is a dummy value)
     server.close()
 
+def cpu():
+    usage =str(psutil.cpu_percent())
+    speak("Cpu is at " + usage)
+
+def Battery():
+    battery = psutil.sensors_battery()
+    percentage = battery.percent
+    speak("Battery is at" +str((percentage)) +"percent")
+    
 #main function
 if __name__  in "__main__":
     greet()
@@ -129,6 +141,21 @@ if __name__  in "__main__":
                 speak(e)
                 speak("Unable to send the message")
         
+        #to ask AI to rememeber and store the data in a text file
+        elif "remember" in query:
+            speak("What should i remember?")
+            data=takeCommand()
+            speak("You said me to remeber " +data)
+            remember = open("data.txt", "w")       #here a text file of data.txt is created which stores the data
+            remember.write(data)
+            remember.close()
+
+        elif "cpu" in query:
+            cpu()
+        
+        elif "battery" in query:
+            Battery()
+        
         elif "logout" in query:
             os.system("shutdown - l")
         
@@ -140,4 +167,4 @@ if __name__  in "__main__":
 
         elif "offline" in query or "thank you" in query or "exit" in query:
             quit()
-    
+        
