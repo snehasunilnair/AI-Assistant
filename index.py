@@ -8,6 +8,9 @@ import speech_recognition as sr
 #import wikipedia
 import wikipedia
 
+#make system tell jokes ;-)
+import pyjokes
+
 #to send mail
 import smtplib
 
@@ -92,6 +95,9 @@ def sendmail(to, content):
     server.sendmail("abc@gmail.com",to, content)   #your mail id  (this is a dummy value)
     server.close()
 
+def jokes():
+    speak(pyjokes.get_joke())
+
 def cpu():
     usage =str(psutil.cpu_percent())
     speak("Cpu is at " + usage)
@@ -149,6 +155,9 @@ if __name__  in "__main__":
             remember = open("data.txt", "w")       #here a text file of data.txt is created which stores the data
             remember.write(data)
             remember.close()
+
+        elif "joke" in query or "jokes" in query:
+            jokes()
 
         elif "cpu" in query:
             cpu()
