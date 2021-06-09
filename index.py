@@ -11,6 +11,9 @@ import wikipedia
 #make system tell jokes ;-)
 import pyjokes
 
+#for playing in youtube
+import pywhatkit
+
 #to send mail
 import smtplib
 
@@ -162,6 +165,16 @@ if __name__  in "__main__":
 
         elif "joke" in query or "jokes" in query:
             jokes()
+
+        #to play videos in youtube    
+        elif "youtube" in query or "song" in query or "songs" in query:
+            if "song" in query or "songs" in query:
+                speak("What song would you like to hear?")
+            else:
+                speak("What would you like to watch?")
+            yt_cmd = takeCommand()
+            speak('playing' + yt_cmd)
+            pywhatkit.playonyt(yt_cmd)
 
         elif "cpu" in query:
             cpu()
