@@ -182,6 +182,52 @@ if __name__  in "__main__":
             speak('playing' + yt_cmd)
             pywhatkit.playonyt(yt_cmd)
 
+        elif "weather" in query:
+            speak(os.system("explorer bingweather:"))
+
+        elif "launch" in query or "run" in query or "open" in query or "run" in query:
+            if "atom" in query:
+                os.system("atom")
+            elif "visual studio" in query or "vscode" in query or "visual studio code" in query:
+                os.system("code .")
+            elif "notepad" in query or "text editor" in query:
+                os.system("notepad")
+            elif "paint" in query or "mspaint" in query or "draw" in query:
+                os.system("Mspaint")
+            elif "word" in query or "word doc" in query:
+                os.system("start winword")
+            elif "excel" in query:
+                os.system("start excel")
+            elif "power point" in query or "ppt" in query:
+                os.system("start powerpnt") 
+            
+            #social handles
+            elif "facebook" in query or "fb" in query:
+                os.system("start chrome https://www.facebook.com/")
+            elif "instagram" in query or "ig" in query:
+                os.system("start chrome https://www.instagram.com/")
+            elif "twitter" in query:
+                os.system("start chrome https://twitter.com/")
+            elif "linkedin" in query:
+                os.system("start chrome https://www.linkedin.com/")
+            elif "medium" in query:
+                os.system("start chrome https://medium.com/")
+
+            elif "github" in query:
+                os.system("start chrome https://github.com/")
+            elif "stack overflow" in query:
+                 speak("I see a coder there, keep it up my friend!")
+                 os.system("start chrome https://stackoverflow.com/")
+                 
+            elif "gmeet" in query or "google meet" in query:
+                os.system("start chrome https://meet.google.com/") 
+            elif "discord" in query:
+                os.system("start chrome https://discord.com/") 
+            elif "spotify" in query:
+                os.system("start chrome https://open.spotify.com/")
+            elif "mail" in query or "gmail" in query:
+                os.system("start chrome https://mail.google.com/")
+
         elif "cpu" in query:
             cpu()
         
