@@ -131,7 +131,7 @@ if __name__  in "__main__":
             result = wikipedia.summary(query,sentences = 2)
             speak(result)
 
-        elif "quote" in query or "quotes" in query:
+        elif " daily quote" in query or "quote of the day" in query or "quote" in query:
             speak(wikiquote.quote_of_the_day())
 
         elif "search in chrome" in query or "chrome search" in query or "google" in query:
@@ -171,6 +171,12 @@ if __name__  in "__main__":
 
         elif "joke" in query or "jokes" in query:
             jokes()
+        
+        elif "how are you" in query or "how have you been" in query:
+            speak("I am doing great! thanks for asking!")
+        
+        elif "what are you doing" in query or "what are you up to" in query:
+            speak("talking to you")
 
         #to play videos in youtube    
         elif "youtube" in query or "song" in query or "songs" in query:
@@ -183,7 +189,7 @@ if __name__  in "__main__":
             pywhatkit.playonyt(yt_cmd)
 
         elif "weather" in query:
-            speak(os.system("explorer bingweather:"))
+            os.system("explorer bingweather:")
 
         elif "launch" in query or "run" in query or "open" in query or "run" in query:
             if "atom" in query:
@@ -206,6 +212,8 @@ if __name__  in "__main__":
                 os.system("start chrome https://www.facebook.com/")
             elif "instagram" in query or "ig" in query:
                 os.system("start chrome https://www.instagram.com/")
+            elif "whatsapp web" in query:
+                os.system("start chrome https://web.whatsapp.com/")
             elif "twitter" in query:
                 os.system("start chrome https://twitter.com/")
             elif "linkedin" in query:
@@ -218,7 +226,7 @@ if __name__  in "__main__":
             elif "stack overflow" in query:
                  speak("I see a coder there, keep it up my friend!")
                  os.system("start chrome https://stackoverflow.com/")
-                 
+
             elif "gmeet" in query or "google meet" in query:
                 os.system("start chrome https://meet.google.com/") 
             elif "discord" in query:
