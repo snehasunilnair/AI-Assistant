@@ -8,6 +8,9 @@ import speech_recognition as sr
 #import wikipedia
 import wikipedia
 
+#for quotes
+import wikiquote
+
 #make system tell jokes ;-)
 import pyjokes
 
@@ -127,6 +130,9 @@ if __name__  in "__main__":
             query= query.replace("wikipedia","")
             result = wikipedia.summary(query,sentences = 2)
             speak(result)
+
+        elif "quote" in query or "quotes" in query:
+            speak(wikiquote.quote_of_the_day())
 
         elif "search in chrome" in query or "chrome search" in query or "google" in query:
             speak("What should i search?")
