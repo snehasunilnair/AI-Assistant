@@ -156,6 +156,10 @@ if __name__  in "__main__":
             remember.write(data)
             remember.close()
 
+        elif "remind" in query or "reminder" in query:
+            remember = open("data.txt", "r")
+            speak("you said me to remember that" + remember.read())   #speaks the contents in file data.txt
+
         elif "joke" in query or "jokes" in query:
             jokes()
 
