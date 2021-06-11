@@ -106,7 +106,7 @@ def jokes():
 
 def cpu():
     usage =str(psutil.cpu_percent())
-    speak("Cpu is at " + usage)
+    speak("Cpu is at " + usage + "percent")
 
 def Battery():
     battery = psutil.sensors_battery()
@@ -204,7 +204,7 @@ if __name__  in "__main__":
                 os.system("start winword")
             elif "excel" in query:
                 os.system("start excel")
-            elif "power point" in query or "ppt" in query:
+            elif "powerpoint" in query or "ppt" in query:
                 os.system("start powerpnt") 
             
             #social handles
