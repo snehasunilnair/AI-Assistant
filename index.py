@@ -1,3 +1,4 @@
+##################################################  modules used ##################################################
 #import text-to-speech conversion library in Python
 import pyttsx3
 engine =pyttsx3.init()
@@ -41,6 +42,7 @@ volume = engine.getProperty('volume')
 vol = 0.7
 engine.setProperty('volume', vol)
 
+##################################################  functions ##################################################
 #function to speak text
 def speak(audio):
     engine.say(audio)
@@ -113,7 +115,7 @@ def Battery():
     percentage = battery.percent
     speak("Battery is at" +str((percentage)) +"percent")
     
-#main function
+##################################################  main program ##################################################
 if __name__  in "__main__":
     greet()
     while True:
