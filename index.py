@@ -91,7 +91,7 @@ def takeCommand():
         
     except Exception as e:
         print(e)
-        speak("Say that again please..")
+        speak("can you say that again please..")
         return"None"
     return query
 
